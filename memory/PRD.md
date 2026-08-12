@@ -42,6 +42,13 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 11)
+- REAL timetable from their GoTeamUp listing: SG3 (Mon 07:00/12:00/17:50/18:50, Wed 06:15/12:00/18:00, Sat 08:00/09:00, Sun 09:00), Synergy SWEAT (Tue 06:15, Wed 19:00), SG3 Strength (Thu 06:15/19:00), SG3 CV (Thu 18:00), Open Gym slots Mon-Thu, Fri = Rest & Recovery; SG3 family highlighted blue
+- Programs renamed to real classes: SG3 Strength (Ross), Synergy SWEAT (Bev), SG3 CV (Jonny), SG3 signature (Amy) — modals updated with real times/coaches
+- Teen & Kids page (/kids): "Strong Starts Here." header, two real youth photos with blue treatment, three parent-focused pillars (Safe & Supported / Confidence First / Genuinely Fun), enquire CTA → /contact; linked in footer + Programs page services card
+- Team page fleshed out: "Meet Them Properly" — per-coach editorial profiles with real bios and expandable "Off The Record" fun facts from the actual site (Ross: Argentina/cucumber; Bev: ice cream/Elvis/gymnast; Jonny: LOTR/Partridge/trumpet; Amy; Connor boxing)
+- PENDING: new hero videos — user provided truncated URLs (d30...8bc.mp4 / 66c...aa8.mp4) from another agent's job (0af37c53...) — they 403 and aren't in this job's assets. Need re-upload or full URLs. Plan once received: download, strip audio + compress via ffmpeg to ~2-4MB, self-host in /app/frontend/public/videos/, poster via ffmpeg still, responsive <source media="(max-width:767px)"> for 9:16 mobile, keep masked reveal + left-weighted overlay
+
 ## Implemented (2026-08-12, iteration 10)
 - Members gallery ("Real People. Real Work.") on Home between Testimonials and CTA: 5 user-uploaded member/action photos in a horizontal snap-scroll strip with arrows, same blue-tint treatment as Facilities (blue colour overlay lifting on hover, corner bracket, index numeral, caption)
 - BUG FIX: Facilities "The Floor" frame looked off — was a 4/3 crop floating with a negative-margin overlap; now a clean wide 16/9 frame centred on its own row (col-span-6 col-start-4, no overlap)

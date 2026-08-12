@@ -15,6 +15,7 @@ const services = [
   {
     name: "Teen & Kids Fitness",
     desc: "Confidence-building sessions for younger athletes — safe, structured, and genuinely fun.",
+    to: "/kids",
   },
   {
     name: "Private Group Sessions",
@@ -61,10 +62,10 @@ export default function ProgramsPage() {
               </p>
               <Link
                 data-testid={`service-enquire-${i}`}
-                to="/contact"
+                to={s.to || "/contact"}
                 className="mt-6 inline-flex items-center gap-2 font-mono-accent text-xs tracking-[0.2em] uppercase text-[#F4F4F0]/50 hover:text-[#4C63F5] transition-colors duration-300"
               >
-                Enquire <ArrowUpRight className="w-4 h-4" />
+                {s.to ? "Explore" : "Enquire"} <ArrowUpRight className="w-4 h-4" />
               </Link>
             </motion.div>
           ))}

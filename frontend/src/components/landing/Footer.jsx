@@ -31,6 +31,7 @@ export const Footer = () => {
               { label: "Team", to: "/team" },
               { label: "Membership", to: "/membership" },
               { label: "FAQ", to: "/faq" },
+              { label: "Teen & Kids", to: "/kids" },
               { label: "Contact", to: "/contact" },
             ].map((l) => (
               <li key={l.label}>

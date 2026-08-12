@@ -14,6 +14,7 @@ import TeamPage from "@/pages/TeamPage";
 import MembershipPage from "@/pages/MembershipPage";
 import ContactPage from "@/pages/ContactPage";
 import FAQPage from "@/pages/FAQPage";
+import KidsPage from "@/pages/KidsPage";
 import PrivacyPage from "@/pages/PrivacyPage";
 
 const ScrollManager = () => {
@@ -86,6 +87,7 @@ function App() {
             <Route path="/membership" element={<MembershipPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/kids" element={<KidsPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
           </Routes>
         </main>

@@ -4,10 +4,10 @@ import { ArrowUpRight } from "lucide-react";
 export const programs = [
   {
     num: "01",
-    name: "Forge",
+    name: "SG3 Strength",
     tag: "Strength & Conditioning",
     desc: "Barbell-led group strength work, coached to proper S&C standard. Squat, hinge, press, pull — progressive blocks that make you measurably stronger.",
-    meta: "60 min / Max 12 athletes",
+    meta: "Thu 06:15 & 19:00 / Max 12",
     detail: "Our flagship strength session. Built on Ross's creative, functional S&C programming — every block runs four weeks, every lift is coached, and every session finishes with the kind of conditioning that reminds you why you came.",
     coach: {
       name: "Ross Paterson",
@@ -28,10 +28,10 @@ export const programs = [
   },
   {
     num: "02",
-    name: "Pulse",
+    name: "Synergy SWEAT",
     tag: "Functional Conditioning",
     desc: "High-energy functional intervals that build an engine. Relentless, creative, and — fair warning — Bev gives no rest in class.",
-    meta: "45 min / Max 16 athletes",
+    meta: "Tue 06:15 & Wed 19:00 / Max 16",
     detail: "The session Edinburgh talks about. Bev's high-energy conditioning mixes sleds, ergs, carries and bodyweight intervals into workouts that are challenging, creative, and genuinely fun. Scaled for every level, dreaded by no one for long.",
     coach: {
       name: "Bev Paterson",
@@ -52,11 +52,11 @@ export const programs = [
   },
   {
     num: "03",
-    name: "Perform",
-    tag: "Sports Performance & HYROX",
-    desc: "Sport-specific training and HYROX preparation. Strength, power, and race-pace conditioning for athletes and the ambitious.",
-    meta: "60 min / Max 10 athletes",
-    detail: "Jonny's domain. Sports-performance S&C with HYROX-specific conditioning built in — sled work, wall balls, running economy and the pacing discipline that race day demands. Whether it's your first race or your fifth, there's a lane for you.",
+    name: "SG3 CV",
+    tag: "Cardio & Performance",
+    desc: "Cardiovascular conditioning with a performance edge — ergs, runs, and race-pace work for HYROX athletes and the ambitious.",
+    meta: "Thu 18:00 / Max 10",
+    detail: "Jonny's domain. Sports-performance conditioning with HYROX-specific work built in — sled pushes, wall balls, running economy and the pacing discipline that race day demands. Whether it's your first race or your fifth, there's a lane for you.",
     coach: {
       name: "Jonny Jones",
       bio: "PT & Group Coach. Speciality: S&C sports performance, rehab, and introduction to lifting.",
@@ -71,31 +71,31 @@ export const programs = [
     results: [
       "Race-ready HYROX conditioning and pacing strategy",
       "Power and speed that transfer to your sport",
-      "A introduction-to-lifting pathway for newer athletes",
+      "An introduction-to-lifting pathway for newer athletes",
     ],
   },
   {
     num: "04",
-    name: "Restore",
-    tag: "Mobility & Rehab",
-    desc: "Mobility, rehab-informed movement, and loaded stretching led by a 2x UK Personal Trainer of the Year. The session that makes every other session possible.",
-    meta: "45 min / Max 14 athletes",
-    detail: "Amy built this around what most training ignores: moving well. Mobility, S&C-informed rehab work, and genuine care for where your body is today. Ideal if you're returning from injury — or making sure you never have to.",
+    name: "SG3",
+    tag: "The Signature Session",
+    desc: "The results-based group fitness Synergy is known for — full-body strength, conditioning, and mobility in one coached session, led by a 2x UK Personal Trainer of the Year.",
+    meta: "Daily / Max 14",
+    detail: "The class that built the reputation. Amy's SG3 blends strength, conditioning, and mobility into a session that meets you where you are — rehab-informed, endlessly scalable, and paired with the SG3 nutrition programme for members who want the full picture.",
     coach: {
       name: "Amy Toolis",
       bio: "Partner & 2x UK Personal Trainer of the Year. Speciality: mobility, S&C, rehab.",
     },
-    stats: { duration: "45 min", capacity: "14", intensity: "Low" },
+    stats: { duration: "45 min", capacity: "14", intensity: "Scalable" },
     session: [
       { step: "Breath & Positions", time: "8 min" },
-      { step: "Mobility Flow", time: "20 min" },
-      { step: "Loaded Stretching", time: "12 min" },
+      { step: "Strength & Mobility Flow", time: "20 min" },
+      { step: "Conditioning Block", time: "12 min" },
       { step: "Downshift", time: "5 min" },
     ],
     results: [
-      "Range of motion you can actually use under load",
-      "Rehab-informed progressions for cranky joints",
-      "Better recovery between every hard session",
+      "Full-body results without punishing your joints",
+      "Mobility you can actually use under load",
+      "Rehab-informed progressions for every body",
     ],
   },
 ];
