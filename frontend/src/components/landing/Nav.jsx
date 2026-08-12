@@ -10,7 +10,7 @@ const links = [
   { label: "Membership", href: "#membership" },
 ];
 
-export const Nav = () => {
+export const Nav = ({ ready = true }) => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -32,8 +32,8 @@ export const Nav = () => {
       <motion.header
         data-testid="main-nav"
         initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.9, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
+        animate={ready ? { y: 0, opacity: 1 } : { y: -80, opacity: 0 }}
+        transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
           scrolled || open
             ? "bg-[#121212]/70 backdrop-blur-xl border-b border-[#F4F4F0]/10"

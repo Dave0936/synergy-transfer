@@ -42,7 +42,17 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 3)
+- Cinematic preloader: eased 0-100% count-up, outline tagline, blue progress bar, slides up on completion; hero/nav reveals gated behind it; body scroll locked during load
+- Hero video visibility increased (overlays lightened from black/45 to black/25, gradient via /70→/45) with legibility preserved
+- Hero variant switcher (bottom-center pill, testids hero-variant-1/2/3): 01 Full-Bleed (default, current design), 02 Split (typography left, tall parallax video frame right with "LIVE / GROUP FLOOR" label), 03 Overlap (giant outline type over centered vertical video strip); AnimatePresence transitions between variants
+- Fixed manifesto 02 alignment: even chapters number-left/content-right, odd chapter content-left/number-right via explicit grid col-start + order classes
+
 ## Verification
+- Preloader: confirmed count-up to 100% and exit; hero variant switching confirmed for all 3 layouts via clicks + screenshots
+- Manifesto 02 alignment verified via screenshot
+
+## Verification (earlier)
 - Screenshots confirmed: hero, manifesto, coaches, facilities, pricing, CTA all render correctly at 1920x800
 - Join form tested end-to-end via Playwright: success message appears
 - No console errors (only a benign emergent-main.js warning)
@@ -52,7 +62,7 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - P1: Host hero video on own CDN/object storage for full control (currently Pexels hotlink)
 - P2: Per-program detail overlays/pages with coach + schedule info
 - P2: Custom cursor and magnetic button micro-interactions
-- P2: Preloader intro animation counting to 100
+- P2: Let visitors pick a default hero variant (persist choice)
 
 ## Credentials
 None — no auth in this app. /app/memory/test_credentials.md intentionally empty.

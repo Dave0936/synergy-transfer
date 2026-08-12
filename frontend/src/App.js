@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Lenis from "lenis";
+import { AnimatePresence } from "framer-motion";
 import "@/App.css";
+import { Preloader } from "@/components/landing/Preloader";
 import { Nav } from "@/components/landing/Nav";
 import { Hero } from "@/components/landing/Hero";
 import { Marquee } from "@/components/landing/Marquee";
@@ -15,6 +17,15 @@ import { CTA } from "@/components/landing/CTA";
 import { Footer } from "@/components/landing/Footer";
 
 function App() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = ready ? "" : "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [ready]);
+
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
@@ -46,9 +57,12 @@ function App() {
   return (
     <div data-testid="app-root" className="bg-[#121212] text-[#F4F4F0] min-h-screen">
       <div className="grain-overlay" aria-hidden="true" />
-      <Nav />
+      <AnimatePresence>
+        {!ready && <Preloader onComplete={() => setReady(true)} />}
+      </AnimatePresence>
+      <Nav ready={ready} />
       <main>
-        <Hero />
+        <Hero ready={ready} />
         <Marquee />
         <Manifesto />
         <Programs />

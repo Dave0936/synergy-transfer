@@ -33,17 +33,21 @@ export const Manifesto = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-15%" }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className={`grid grid-cols-12 gap-6 items-start ${i % 2 === 1 ? "" : ""}`}
+            className="grid grid-cols-12 gap-6 items-start"
           >
             <span
               aria-hidden="true"
               className={`col-span-12 md:col-span-3 font-display font-bold text-7xl md:text-9xl leading-none text-outline-dark ${
-                i % 2 === 1 ? "md:order-3 md:text-right" : ""
+                i % 2 === 1 ? "md:order-2 md:col-start-10 md:text-right" : "md:order-1 md:col-start-1"
               }`}
             >
               {c.num}
             </span>
-            <div className={`col-span-12 md:col-span-6 ${i % 2 === 1 ? "md:order-2 md:col-start-5" : "md:col-start-5"}`}>
+            <div
+              className={`col-span-12 md:col-span-6 ${
+                i % 2 === 1 ? "md:order-1 md:col-start-1" : "md:order-2 md:col-start-5"
+              }`}
+            >
               <h2 className="font-display font-bold uppercase tracking-tight text-4xl md:text-6xl text-[#121212] mb-6">
                 {c.title}
               </h2>
