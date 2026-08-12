@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { PageHeader } from "@/components/landing/PageHeader";
-import { Coaches } from "@/components/landing/Coaches";
 import { CTA } from "@/components/landing/CTA";
 
 const profiles = [
@@ -130,8 +129,7 @@ export default function TeamPage() {
         title={"A Family Team.\nAn Award-Winning One."}
         sub="2x UK Personal Trainer of the Year. 4x UK Functional Gym of the Year. But what members talk about most is how this team makes them feel — welcome, coached, and capable of more."
       />
-      <Coaches />
-      <section data-testid="team-profiles" className="px-6 md:px-12 py-24 md:py-32">
+      <section data-testid="team-profiles" className="px-6 md:px-12 pt-8 md:pt-12 pb-24 md:pb-32">
         <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-[#4C63F5] mb-4">
           Meet Them Properly
         </p>

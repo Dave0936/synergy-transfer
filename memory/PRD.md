@@ -42,6 +42,11 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 12)
+- Hero now uses the REAL gym video: user-uploaded desktop clip compressed (audio stripped, H.264 crf26, faststart) to 1.03MB, self-hosted at /videos/synergy-hero-desktop.mp4 with ffmpeg poster /videos/hero-fallback.jpg; MOBILE 9:16 version still pending upload from user (structure ready — will add <source media="(max-width:767px)">)
+- Team page: removed the coaches carousel strip (redundant with the fleshed-out profiles); carousel stays on Home
+- Contact page: live Google Maps embed for the Leith studio (grayscale → colour on hover, blue corner bracket, address label chip)
+
 ## Implemented (2026-08-12, iteration 11)
 - REAL timetable from their GoTeamUp listing: SG3 (Mon 07:00/12:00/17:50/18:50, Wed 06:15/12:00/18:00, Sat 08:00/09:00, Sun 09:00), Synergy SWEAT (Tue 06:15, Wed 19:00), SG3 Strength (Thu 06:15/19:00), SG3 CV (Thu 18:00), Open Gym slots Mon-Thu, Fri = Rest & Recovery; SG3 family highlighted blue
 - Programs renamed to real classes: SG3 Strength (Ross), Synergy SWEAT (Bev), SG3 CV (Jonny), SG3 signature (Amy) — modals updated with real times/coaches

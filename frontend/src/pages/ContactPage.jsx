@@ -154,6 +154,30 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
+
+      <section data-testid="contact-map" className="px-6 md:px-12 pb-32 md:pb-40">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative overflow-hidden border border-[#F4F4F0]/10"
+        >
+          <iframe
+            data-testid="contact-map-iframe"
+            title="Map of Synergy Group Fitness, 35 West Bowling Green Street, Leith, Edinburgh"
+            src="https://maps.google.com/maps?q=Synergy%20Group%20Fitness%2C%2035%20West%20Bowling%20Green%20Street%2C%20Edinburgh%20EH6%205NX&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            className="w-full h-[380px] md:h-[460px] grayscale contrast-[1.05] hover:grayscale-0 transition-all duration-700"
+            loading="lazy"
+          />
+          <span className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-[#4C63F5] pointer-events-none" aria-hidden="true" />
+          <div className="absolute bottom-0 left-0 bg-[#121212] px-5 py-3 pointer-events-none">
+            <span className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#F4F4F0]/80">
+              35 West Bowling Green Street — Leith
+            </span>
+          </div>
+        </motion.div>
+      </section>
     </>
   );
 }

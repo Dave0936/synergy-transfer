@@ -2,10 +2,8 @@ import { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
-const HERO_IMG =
-  "https://customer-assets-0z36b82j.emergentagent.net/job_elite-performance-13/artifacts/uq5vveve_ME177663.webp";
-const HERO_VIDEO =
-  "https://videos.pexels.com/video-files/6740245/6740245-hd_1920_1080_25fps.mp4";
+const HERO_IMG = "/videos/hero-fallback.jpg";
+const HERO_VIDEO = "/videos/synergy-hero-desktop.mp4";
 
 const lines = [
   { text: "Stronger", accent: false },
