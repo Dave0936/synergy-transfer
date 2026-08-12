@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Hero } from "@/components/landing/Hero";
 import { Marquee } from "@/components/landing/Marquee";
+import { ParallaxBand } from "@/components/landing/ParallaxBand";
 import { Manifesto } from "@/components/landing/Manifesto";
 import { Programs } from "@/components/landing/Programs";
 import { ProgramModal } from "@/components/landing/ProgramModal";
@@ -18,6 +19,7 @@ export default function Home({ ready }) {
       <Hero ready={ready} />
       <Marquee />
       <Manifesto />
+      <ParallaxBand />
       <Programs onSelect={setSelectedProgram} />
       <Coaches />
       <Facilities />
