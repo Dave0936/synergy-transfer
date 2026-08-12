@@ -32,9 +32,11 @@ export const Preloader = ({ onComplete }) => {
       className="fixed inset-0 z-[100] bg-[#121212] flex flex-col justify-between px-6 md:px-12 py-8"
     >
       <div className="flex items-center justify-between">
-        <span className="font-display font-bold uppercase tracking-tight text-xl text-[#F4F4F0]">
-          Synergy<span className="text-[#4C63F5]">.</span>
-        </span>
+        <img
+          src="/synergy-logo.png"
+          alt="Synergy Group Fitness"
+          className="h-7 w-auto"
+        />
         <span className="font-mono-accent text-[10px] tracking-[0.3em] uppercase text-[#F4F4F0]/40">
           Loading Experience
         </span>

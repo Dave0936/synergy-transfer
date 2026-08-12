@@ -6,9 +6,12 @@ export const Footer = () => {
     <footer data-testid="site-footer" className="bg-[#121212] border-t border-[#F4F4F0]/10 px-6 md:px-12 pt-20 pb-10">
       <div className="grid grid-cols-2 md:grid-cols-12 gap-10 mb-20">
         <div className="col-span-2 md:col-span-4">
-          <p className="font-display font-bold uppercase tracking-tight text-3xl text-[#F4F4F0]">
-            Synergy<span className="text-[#4C63F5]">.</span>
-          </p>
+          <img
+            src="/synergy-logo.png"
+            alt="Synergy Group Fitness"
+            className="h-9 w-auto"
+            data-testid="footer-logo"
+          />
           <p className="mt-4 max-w-xs text-sm text-[#F4F4F0]/50 leading-relaxed">
             Strength. Fitness. Community. An award-winning functional gym in
             the heart of Leith, Edinburgh.

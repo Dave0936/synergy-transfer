@@ -42,6 +42,11 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 16)
+- Reworked the real Synergy logo for the site identity: extracted the S-blades icon from their original logo, recolored to electric blue tones (#3B4CE0 → #6E82FA luminance map), rebuilt the wordmark as a double stack — "SYNERGY." in Oswald Bold (bone) with blue full stop + "GROUP FITNESS" in letterspaced JetBrains Mono (blue); icon height matched to the type stack
+- Outputs: /public/synergy-logo.png (full lockup, transparent) + /public/synergy-mark.png (icon only, used as favicon/apple-touch-icon)
+- Applied in Nav, Footer, and Preloader; build script kept at /tmp/build_logo.py (regenerate by re-running)
+
 ## Implemented (2026-08-12, iteration 15)
 - Bone (#EDE8DF) contrast sections beyond the homepage, per user request: Team page profiles ("The People Behind The Whistle"), Programs page services grid ("Beyond The Timetable"), News page story grid — all with inverted charcoal text, dark hairline borders, and hover states that flip cards to charcoal with bone text
 

@@ -55,9 +55,13 @@ export const Nav = ({ ready = true }) => {
             data-testid="nav-logo"
             to="/"
             onClick={() => setOpen(false)}
-            className="font-display font-bold uppercase tracking-tight text-xl md:text-2xl text-[#F4F4F0]"
+            className="flex items-center"
           >
-            Synergy<span className="text-[#4C63F5]">.</span>
+            <img
+              src="/synergy-logo.png"
+              alt="Synergy Group Fitness"
+              className="h-6 md:h-7 w-auto"
+            />
           </Link>
           <div className="hidden md:flex items-center gap-7">
             {links.map((l) => (
