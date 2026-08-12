@@ -1,9 +1,11 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 const HERO_IMG =
   "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwyfHxjaW5lbWF0aWMlMjBneW0lMjB3b3Jrb3V0JTIwZGFyayUyMGxpZ2h0aW5nfGVufDB8fHx8MTc4NjUxODQ0OXww&ixlib=rb-4.1.0&q=85";
+const HERO_VIDEO =
+  "https://videos.pexels.com/video-files/6740245/6740245-hd_1920_1080_25fps.mp4";
 
 const lines = [
   { text: "Stronger", accent: false },
@@ -21,9 +23,18 @@ const lineVariants = {
 
 export const Hero = () => {
   const ref = useRef(null);
+  const videoRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (v) {
+      v.muted = true;
+      v.play().catch(() => {});
+    }
+  }, []);
 
   return (
     <section
@@ -33,13 +44,21 @@ export const Hero = () => {
       className="relative h-[100svh] min-h-[640px] overflow-hidden"
     >
       <motion.div style={{ y: bgY }} className="absolute inset-0 -top-[10%] h-[120%]">
-        <img
-          src={HERO_IMG}
-          alt="Athlete lifting a barbell in dramatic gym lighting"
+        <video
+          ref={videoRef}
+          data-testid="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster={HERO_IMG}
           className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/60 to-[#121212]/30" />
-        <div className="absolute inset-0 bg-black/40" />
+        >
+          <source src={HERO_VIDEO} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/70 to-[#121212]/40" />
+        <div className="absolute inset-0 bg-black/45" />
       </motion.div>
 
       <motion.div

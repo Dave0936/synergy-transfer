@@ -6,6 +6,7 @@ import { Hero } from "@/components/landing/Hero";
 import { Marquee } from "@/components/landing/Marquee";
 import { Manifesto } from "@/components/landing/Manifesto";
 import { Programs } from "@/components/landing/Programs";
+import { Schedule } from "@/components/landing/Schedule";
 import { Coaches } from "@/components/landing/Coaches";
 import { Facilities } from "@/components/landing/Facilities";
 import { Pricing } from "@/components/landing/Pricing";
@@ -51,6 +52,7 @@ function App() {
         <Marquee />
         <Manifesto />
         <Programs />
+        <Schedule />
         <Coaches />
         <Facilities />
         <Pricing />

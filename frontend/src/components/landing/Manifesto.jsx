@@ -20,7 +20,7 @@ const chapters = [
 
 export const Manifesto = () => {
   return (
-    <section data-testid="manifesto-section" className="relative px-6 md:px-12 py-32 md:py-40">
+    <section data-testid="manifesto-section" className="relative bg-[#EDE8DF] px-6 md:px-12 py-32 md:py-40">
       <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-[#4C63F5] mb-16">
         The Manifesto
       </p>
@@ -37,17 +37,17 @@ export const Manifesto = () => {
           >
             <span
               aria-hidden="true"
-              className={`col-span-12 md:col-span-3 font-display font-bold text-7xl md:text-9xl leading-none text-outline-blue ${
+              className={`col-span-12 md:col-span-3 font-display font-bold text-7xl md:text-9xl leading-none text-outline-dark ${
                 i % 2 === 1 ? "md:order-3 md:text-right" : ""
               }`}
             >
               {c.num}
             </span>
             <div className={`col-span-12 md:col-span-6 ${i % 2 === 1 ? "md:order-2 md:col-start-5" : "md:col-start-5"}`}>
-              <h2 className="font-display font-bold uppercase tracking-tight text-4xl md:text-6xl text-[#F4F4F0] mb-6">
+              <h2 className="font-display font-bold uppercase tracking-tight text-4xl md:text-6xl text-[#121212] mb-6">
                 {c.title}
               </h2>
-              <p className="text-base md:text-lg leading-relaxed text-[#F4F4F0]/70 max-w-lg">
+              <p className="text-base md:text-lg leading-relaxed text-[#121212]/65 max-w-lg">
                 {c.body}
               </p>
             </div>

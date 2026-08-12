@@ -35,6 +35,13 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - data-testid attributes on all interactive elements
 - index.html title/meta updated to Synergy branding
 
+## Implemented (2026-08-12, iteration 2)
+- Hero background is now a group training VIDEO (Pexels 6740245, HD mp4, autoplay/muted/loop with ref-based play for React muted-attribute quirk), parallax preserved, Unsplash image kept as poster fallback
+- Full-screen mobile menu: hamburger toggle, staggered oversized numbered links, join CTA, body scroll lock, closes on navigation
+- Weekly class timetable section (#schedule): Mon-Sun grid with visible bone-on-bone grid lines, Forge/Pulse/Ride/Flow slots, dark hover inversion per cell, horizontal scroll on mobile
+- Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
+- Nav gained a "Schedule" link
+
 ## Verification
 - Screenshots confirmed: hero, manifesto, coaches, facilities, pricing, CTA all render correctly at 1920x800
 - Join form tested end-to-end via Playwright: success message appears
@@ -42,8 +49,7 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 
 ## Backlog / Next Tasks
 - P0: Wire join form to backend (save leads to MongoDB) or Resend email notification
-- P1: Class schedule/timetable section with real weekly grid
-- P1: Mobile navigation menu (hamburger) — currently links hidden on small screens
+- P1: Host hero video on own CDN/object storage for full control (currently Pexels hotlink)
 - P2: Per-program detail overlays/pages with coach + schedule info
 - P2: Custom cursor and magnetic button micro-interactions
 - P2: Preloader intro animation counting to 100

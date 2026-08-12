@@ -55,6 +55,11 @@ body {
     color: transparent;
 }
 
+.text-outline-dark {
+    -webkit-text-stroke: 1.5px rgba(18, 18, 18, 0.25);
+    color: transparent;
+}
+
 @keyframes marquee-scroll {
     from {
         transform: translateX(0);
