@@ -9,9 +9,11 @@ const links = [
   { label: "Team", to: "/team", id: "team" },
   { label: "Teen & Kids", to: "/kids", id: "kids" },
   { label: "Membership", to: "/membership", id: "membership" },
-  { label: "FAQ", to: "/faq", id: "faq" },
+  { label: "News", to: "/news", id: "news" },
   { label: "Contact", to: "/contact", id: "contact" },
 ];
+
+const mobileLinks = [...links.slice(0, 6), { label: "FAQ", to: "/faq", id: "faq" }, links[6]];
 
 export const Nav = ({ ready = true }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -106,7 +108,7 @@ export const Nav = ({ ready = true }) => {
             className="fixed inset-0 z-40 bg-[#121212] flex flex-col justify-center px-8 md:hidden"
           >
             <nav className="flex flex-col gap-2">
-              {links.map((l, i) => (
+              {mobileLinks.map((l, i) => (
                 <div key={l.label} className="overflow-hidden">
                   <motion.div
                     initial={{ y: "110%" }}
