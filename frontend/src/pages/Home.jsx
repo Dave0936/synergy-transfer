@@ -9,6 +9,7 @@ import { Coaches } from "@/components/landing/Coaches";
 import { Facilities } from "@/components/landing/Facilities";
 import { Pricing } from "@/components/landing/Pricing";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { MemberGallery } from "@/components/landing/MemberGallery";
 import { CTA } from "@/components/landing/CTA";
 
 export default function Home({ ready }) {
@@ -25,6 +26,7 @@ export default function Home({ ready }) {
       <Facilities />
       <Pricing />
       <Testimonials />
+      <MemberGallery />
       <CTA />
       <ProgramModal program={selectedProgram} onClose={() => setSelectedProgram(null)} />
     </>

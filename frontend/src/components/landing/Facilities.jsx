@@ -74,13 +74,13 @@ export const Facilities = () => {
             parallax={yTall}
           />
         </div>
-        <div className="col-span-12 md:col-span-5 md:col-start-2 md:-mt-10">
+        <div className="col-span-12 md:col-span-6 md:col-start-4 mt-6 md:mt-2">
           <Frame
             src={IMG_WIDE}
             alt="Dumbbell racks and open training space inside the Synergy gym"
             label="The Floor"
             index={3}
-            className="aspect-[4/3]"
+            className="aspect-[16/9]"
           />
         </div>
       </div>

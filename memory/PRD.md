@@ -42,6 +42,10 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 10)
+- Members gallery ("Real People. Real Work.") on Home between Testimonials and CTA: 5 user-uploaded member/action photos in a horizontal snap-scroll strip with arrows, same blue-tint treatment as Facilities (blue colour overlay lifting on hover, corner bracket, index numeral, caption)
+- BUG FIX: Facilities "The Floor" frame looked off — was a 4/3 crop floating with a negative-margin overlap; now a clean wide 16/9 frame centred on its own row (col-span-6 col-start-4, no overlap)
+
 ## Implemented (2026-08-12, iteration 9)
 - Real gym photography throughout (5 user-uploaded shots, customer-assets CDN):
   - Facilities rebuilt as a 3-frame asymmetric gallery — "The Engine Room" (blue-lit cardio, wide), "The Rig" (tall, parallax), "The Floor" (dumbbells) — all with a consistent treatment: blue colour-tint overlay (mix-blend-color) that lifts on hover + scale, blue corner bracket, mono caption label, blue index numeral
