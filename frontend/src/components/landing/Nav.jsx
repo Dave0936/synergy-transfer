@@ -4,11 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Programs", to: "/programs" },
-  { label: "Schedule", to: "/schedule" },
-  { label: "Team", to: "/team" },
-  { label: "Membership", to: "/membership" },
-  { label: "Contact", to: "/contact" },
+  { label: "Programs", to: "/programs", id: "programs" },
+  { label: "Schedule", to: "/schedule", id: "schedule" },
+  { label: "Team", to: "/team", id: "team" },
+  { label: "Teen & Kids", to: "/kids", id: "kids" },
+  { label: "Membership", to: "/membership", id: "membership" },
+  { label: "FAQ", to: "/faq", id: "faq" },
+  { label: "Contact", to: "/contact", id: "contact" },
 ];
 
 export const Nav = ({ ready = true }) => {
@@ -55,11 +57,11 @@ export const Nav = ({ ready = true }) => {
           >
             Synergy<span className="text-[#4C63F5]">.</span>
           </Link>
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-7">
             {links.map((l) => (
               <NavLink
                 key={l.label}
-                data-testid={`nav-link-${l.label.toLowerCase()}`}
+                data-testid={`nav-link-${l.id}`}
                 to={l.to}
                 className={({ isActive }) =>
                   `font-mono-accent text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
@@ -112,7 +114,7 @@ export const Nav = ({ ready = true }) => {
                     transition={{ duration: 0.6, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <NavLink
-                      data-testid={`mobile-nav-link-${l.label.toLowerCase()}`}
+                      data-testid={`mobile-nav-link-${l.id}`}
                       to={l.to}
                       onClick={() => setOpen(false)}
                       className="flex items-baseline gap-4 font-display font-bold uppercase tracking-tight text-5xl text-[#F4F4F0] py-2"

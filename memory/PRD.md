@@ -42,6 +42,9 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 13)
+- BUG FIX: FAQ and Teen & Kids were missing from nav (footer-only) — both added to desktop nav and mobile full-screen menu (7 links total, tightened gap); nav testids switched to slug ids (nav-link-kids etc.)
+
 ## Implemented (2026-08-12, iteration 12)
 - Hero now uses the REAL gym video: user-uploaded desktop clip compressed (audio stripped, H.264 crf26, faststart) to 1.03MB, self-hosted at /videos/synergy-hero-desktop.mp4 with ffmpeg poster /videos/hero-fallback.jpg; MOBILE 9:16 version still pending upload from user (structure ready — will add <source media="(max-width:767px)">)
 - Team page: removed the coaches carousel strip (redundant with the fleshed-out profiles); carousel stays on Home
