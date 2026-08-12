@@ -24,7 +24,7 @@ export default function MembershipPage() {
       <PageHeader
         kicker="Membership"
         title={"Choose Your\nCommitment."}
-        sub="Start with a free 7-day trial membership — unlimited classes, no card required. Prices below are indicative; your exact rate is confirmed at booking."
+        sub="Start with a free 7-day trial membership — unlimited classes, no card required. Then it's £88/month rolling, with no joining fee and no long-term contract."
       />
       <Pricing />
 

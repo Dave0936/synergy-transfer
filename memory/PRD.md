@@ -42,6 +42,10 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 8)
+- Real pricing (GBP) from the business: Free Trial (£0/7 days), Synergy Plus (£88/mo rolling — timetable + open gym + MySynergyCoach app + SG3 nutrition), PAYG & Passes (£8/day Hussle, 10 Class Pass no expiry, PAYG singles)
+- Membership page header updated with real "£88/month rolling, no joining fee" copy; pricing header carries "Rolling monthly. No joining fee. No 12-month contracts."
+
 ## Implemented (2026-08-12, iteration 7 — FULL SITE)
 - Multi-page site with react-router: Home, Programs (/programs), Schedule (/schedule), Team (/team), Membership (/membership), Contact (/contact), FAQ (/faq), Privacy (/privacy) — shared Nav (router-aware with active states), Footer (Explore links + privacy/FAQ), Cursor, grain, Lenis with scroll-to-top on route change
 - PageHeader component: masked line reveal on every page
