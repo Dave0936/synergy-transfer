@@ -42,6 +42,18 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 4)
+- Custom cursor (Cursor.jsx): dot + spring-lagged ring, mix-blend-difference; grows on any interactive hover, morphs into blue labelled pills via data-cursor="view|book|join"; hidden on touch/reduced-motion; native cursor suppressed via .has-custom-cursor CSS
+- Program detail overlays (ProgramModal.jsx): full-screen takeover per program with giant display name, coach bio, duration/capacity/intensity stat band, 4-step sample session timeline, results list, "Book a Free Trial" CTA; Esc/backdrop-close, Lenis stop/start while open
+- Content aligned to the REAL Synergy Group Fitness (synergygroupfitness.co.uk, Leith, Edinburgh):
+  - Programs renamed to real offerings: Forge (S&C / Ross Paterson), Pulse (functional conditioning / Bev Paterson), Perform (sports performance & HYROX / Jonny Jones), Restore (mobility & rehab / Amy Toolis); Schedule renamed Ride→Perform, Flow→Restore
+  - Coaches = real team: Ross Paterson (Owner/Head Coach), Amy Toolis (2x UK PT of the Year), Bev Paterson (Partner/Coach)
+  - Facilities stats now real awards: 4x UK Functional Gym of the Year, 2x UK PT of the Year, EH6 Leith Edinburgh
+  - Testimonials = real member quotes (Leigh McIntyre, Amanda Williams, Paul Cooper)
+  - Programs heading uses real tagline "Strength. Fitness. Community."; testimonials kicker "More Than Just A Gym"; marquee updated with real taglines
+  - CTA aligned to real offer: FREE 7-day trial; footer address = 35 West Bowling Green Street, Leith, Edinburgh EH6 5NX, #morethanjustagym
+  - Hero kicker "Leith, Edinburgh"; pricing tier 1 tied to free trial
+
 ## Implemented (2026-08-12, iteration 3)
 - Cinematic preloader: eased 0-100% count-up, outline tagline, blue progress bar, slides up on completion; hero/nav reveals gated behind it; body scroll locked during load
 - Hero video visibility increased (overlays lightened from black/45 to black/25, gradient via /70→/45) with legibility preserved

@@ -5,8 +5,8 @@ const tiers = [
   {
     name: "Foundation",
     price: "89",
-    desc: "For those building the habit.",
-    features: ["8 classes per month", "Open gym access (off-peak)", "Movement assessment", "Member app & tracking"],
+    desc: "Start where you are.",
+    features: ["Free 7-day trial membership", "Unlimited classes during trial", "Movement assessment with a coach", "Synergy app & class booking"],
     featured: false,
   },
   {
@@ -60,7 +60,7 @@ export const Pricing = () => {
             </h3>
             <p className={`text-sm mt-1 ${t.featured ? "text-[#F4F4F0]/80" : "text-[#121212]/55"}`}>{t.desc}</p>
             <p className="mt-8 flex items-start gap-1">
-              <span className={`font-mono-accent text-lg mt-2 ${t.featured ? "text-[#F4F4F0]/80" : "text-[#121212]/50"}`}>$</span>
+              <span className={`font-mono-accent text-lg mt-2 ${t.featured ? "text-[#F4F4F0]/80" : "text-[#121212]/50"}`}>from $</span>
               <span className={`font-display font-bold text-7xl md:text-8xl tracking-tight leading-none ${t.featured ? "text-[#F4F4F0]" : "text-[#121212]"}`}>
                 {t.price}
               </span>

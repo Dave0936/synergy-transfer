@@ -88,6 +88,11 @@ body {
     background-size: 100% 33.333%;
 }
 
+.has-custom-cursor,
+.has-custom-cursor * {
+    cursor: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .animate-marquee {
         animation: none;

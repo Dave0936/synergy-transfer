@@ -7,10 +7,10 @@ const IMG_HALL =
   "https://images.unsplash.com/photo-1648235692910-947cb90ddd97?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTJ8MHwxfHNlYXJjaHwyfHxwcmVtaXVtJTIwbHV4dXJ5JTIwZ3ltJTIwaW50ZXJpb3IlMjBkYXJrfGVufDB8fHx8MTc4NjUxODQ0OHww&ixlib=rb-4.1.0&q=85";
 
 const stats = [
-  { value: "12,000", label: "Sq Ft of Training Floor" },
-  { value: "24/7", label: "Member Access" },
+  { value: "4x", label: "UK Functional Gym of the Year" },
+  { value: "2x", label: "UK PT of the Year — Amy Toolis" },
   { value: "120+", label: "Classes Every Week" },
-  { value: "03", label: "Recovery Suites" },
+  { value: "EH6", label: "Leith, Edinburgh" },
 ];
 
 export const Facilities = () => {
@@ -26,7 +26,7 @@ export const Facilities = () => {
           The Facility
         </p>
         <h2 className="font-display font-bold uppercase tracking-tight text-4xl md:text-6xl text-[#F4F4F0] max-w-4xl">
-          Built Like An Arena. Finished Like A Gallery.
+          A Functional Gym Built For Serious Training
         </h2>
       </div>
 

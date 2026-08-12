@@ -7,16 +7,16 @@ export const Footer = () => {
             Synergy<span className="text-[#4C63F5]">.</span>
           </p>
           <p className="mt-4 max-w-xs text-sm text-[#F4F4F0]/50 leading-relaxed">
-            Group fitness for people who take training seriously. Three
-            locations. One standard.
+            Strength. Fitness. Community. An award-winning functional gym in
+            the heart of Leith, Edinburgh.
           </p>
         </div>
         <div>
           <p className="font-mono-accent text-[11px] tracking-[0.25em] uppercase text-[#F4F4F0]/40 mb-5">Visit</p>
           <ul className="space-y-3 text-sm text-[#F4F4F0]/70">
-            <li data-testid="footer-location-downtown">Downtown — 44 Mercer St</li>
-            <li data-testid="footer-location-riverside">Riverside — 9 Foundry Way</li>
-            <li data-testid="footer-location-north">North — 120 Atlas Ave</li>
+            <li data-testid="footer-location-downtown">35 West Bowling Green Street</li>
+            <li data-testid="footer-location-riverside">Leith, Edinburgh</li>
+            <li data-testid="footer-location-north">EH6 5NX</li>
           </ul>
         </div>
         <div>
@@ -47,7 +47,7 @@ export const Footer = () => {
           © 2026 Synergy Group Fitness
         </p>
         <p className="font-mono-accent text-[11px] tracking-[0.2em] uppercase text-[#F4F4F0]/40">
-          Stronger Together. Every Rep.
+          #morethanjustagym
         </p>
       </div>
     </footer>

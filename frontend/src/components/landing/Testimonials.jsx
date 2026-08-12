@@ -2,19 +2,19 @@ import { motion } from "framer-motion";
 
 const quotes = [
   {
-    quote: "I've trained everywhere. Nowhere else made me feel like my effort actually mattered to the people coaching me.",
-    name: "Jordan M.",
-    detail: "Member since 2021 / Performance",
+    quote: "Synergy has been integral to getting back my fitness and confidence after a major heart operation. It's a family business with a warm, welcoming community.",
+    name: "Leigh McIntyre",
+    detail: "Member / Edinburgh",
   },
   {
-    quote: "Down 14 kilos, deadlifting double bodyweight, and for the first time in my life I look forward to Mondays.",
-    name: "Priya S.",
-    detail: "Member since 2023 / Elite",
+    quote: "Best gym in Edinburgh! I knew as soon as I finished my first class that this was the gym for me. Functional, friendly and fun.",
+    name: "Amanda Williams",
+    detail: "Member / #morethanjustagym",
   },
   {
-    quote: "It's not a gym. It's a standard you hold yourself to — and a room full of people who won't let you lower it.",
-    name: "Marcus T.",
-    detail: "Member since 2020 / Performance",
+    quote: "Synergy is a 10/10 for me. Best gym experience in over 40 years. The coaches are amazing and I love their passion.",
+    name: "Paul Cooper",
+    detail: "Member / 40 years of gyms",
   },
 ];
 
@@ -22,7 +22,7 @@ export const Testimonials = () => {
   return (
     <section data-testid="testimonials-section" className="px-6 md:px-12 py-32 md:py-40 bg-[#1A1A1A]">
       <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-[#4C63F5] mb-20">
-        From The Floor
+        More Than Just A Gym
       </p>
       <div className="space-y-24 md:space-y-32">
         {quotes.map((q, i) => (

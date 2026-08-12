@@ -27,9 +27,9 @@ export const CTA = () => {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="font-display font-bold uppercase tracking-tighter leading-[0.9] text-[#F4F4F0] text-6xl md:text-8xl lg:text-9xl"
         >
-          Your First
+          Your Free Week
           <br />
-          Week Is On Us.
+          Starts Today.
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
@@ -38,8 +38,8 @@ export const CTA = () => {
           transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 max-w-md text-base md:text-lg text-[#F4F4F0]/85 leading-relaxed"
         >
-          Seven days. Unlimited classes. One movement assessment with a head
-          coach. No card required — just show up.
+          Seven days. Unlimited classes. One movement assessment with a coach
+          at our Leith studio. No card required — just show up.
         </motion.p>
 
         <motion.div

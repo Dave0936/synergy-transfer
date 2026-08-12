@@ -81,7 +81,7 @@ const Kicker = ({ ready, centered = false }) => (
     transition={{ duration: 1, delay: 0.2 }}
     className={`font-mono-accent text-xs md:text-sm tracking-[0.3em] uppercase text-[#F4F4F0]/70 mb-6 ${centered ? "text-center" : ""}`}
   >
-    Synergy Group Fitness — Est. 2019
+    Synergy Group Fitness — Leith, Edinburgh
   </motion.p>
 );
 
@@ -94,8 +94,8 @@ const SubAndCta = ({ ready, centered = false }) => (
       transition={{ duration: 0.9, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
       className="max-w-md text-base md:text-lg leading-relaxed text-[#F4F4F0]/80"
     >
-      Elite coaching, cinematic spaces, and a community that refuses to let you
-      stay the same. This is training as a way of life.
+      An award-winning functional gym where elite coaching, creative
+      programming, and a family-run community refuse to let you stay the same.
     </motion.p>
     <motion.a
       data-testid="hero-cta-button"

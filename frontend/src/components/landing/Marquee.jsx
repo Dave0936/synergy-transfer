@@ -1,8 +1,8 @@
 const items = [
   "Synergy Group Fitness",
-  "No Excuses",
-  "Transform Your Potential",
-  "Discipline Over Motivation",
+  "More Than Just A Gym",
+  "Strength. Fitness. Community.",
+  "Edinburgh's Functional Gym",
 ];
 
 export const Marquee = () => {

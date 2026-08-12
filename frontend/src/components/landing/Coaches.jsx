@@ -2,21 +2,21 @@ import { motion } from "framer-motion";
 
 const coaches = [
   {
-    name: "Maya Okonkwo",
-    role: "Head of Strength",
-    creds: "CSCS / 12 yrs / Former national weightlifter",
-    img: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxmaXRuZXNzJTIwdHJhaW5lciUyMHBvcnRyYWl0JTIwZGFya3xlbnwwfHx8fDE3ODY1MTg0NDh8MA&ixlib=rb-4.1.0&q=85",
-  },
-  {
-    name: "Dorian Vale",
-    role: "Conditioning Lead",
-    creds: "EXOS-XPS / 9 yrs / Elite HYROX coach",
+    name: "Ross Paterson",
+    role: "Owner & Head Coach",
+    creds: "S&C / Creative functional fitness",
     img: "https://images.pexels.com/photos/3912944/pexels-photo-3912944.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   },
   {
-    name: "Alina Reyes",
-    role: "Movement & Recovery",
-    creds: "FRC-ms / 10 yrs / Ex-professional dancer",
+    name: "Amy Toolis",
+    role: "Partner / Group Coach",
+    creds: "2x UK Personal Trainer of the Year / Mobility & rehab",
+    img: "https://images.unsplash.com/photo-1548690312-e3b507d8c110?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHwxfHxmaXRuZXNzJTIwdHJhaW5lciUyMHBvcnRyYWl0JTIwZGFya3xlbnwwfHx8fDE3ODY1MTg0NDh8MA&ixlib=rb-4.1.0&q=85",
+  },
+  {
+    name: "Bev Paterson",
+    role: "Partner / Group Coach",
+    creds: "Relentless high energy — no rest in class",
     img: "https://images.unsplash.com/photo-1434847868581-86e8a2b8e7a3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzd8MHwxfHNlYXJjaHw0fHxmaXRuZXNzJTIwdHJhaW5lciUyMHBvcnRyYWl0JTIwZGFya3xlbnwwfHx8fDE3ODY1MTg0NDh8MA&ixlib=rb-4.1.0&q=85",
   },
 ];
@@ -26,11 +26,16 @@ export const Coaches = () => {
     <section id="coaches" data-testid="coaches-section" className="px-6 md:px-12 py-32 md:py-40 bg-[#1A1A1A]">
       <div className="mb-20">
         <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-[#4C63F5] mb-4">
-          The Coaches
+          The Team
         </p>
         <h2 className="font-display font-bold uppercase tracking-tight text-4xl md:text-6xl text-[#F4F4F0] max-w-3xl">
-          Coached By People Who've Done It
+          A Family Team. An Award-Winning One.
         </h2>
+        <p className="mt-6 max-w-xl text-base leading-relaxed text-[#F4F4F0]/60">
+          Home to a 2x UK Personal Trainer of the Year and coaches whose
+          passion members call out by name — this is the team behind 4x UK
+          Functional Gym of the Year.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">

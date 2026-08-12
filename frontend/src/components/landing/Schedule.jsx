@@ -6,15 +6,15 @@ const days = [
     classes: [
       { time: "06:00", name: "Forge" },
       { time: "12:15", name: "Pulse" },
-      { time: "18:00", name: "Ride" },
-      { time: "19:30", name: "Flow" },
+      { time: "18:00", name: "Perform" },
+      { time: "19:30", name: "Restore" },
     ],
   },
   {
     day: "Tue",
     classes: [
       { time: "06:00", name: "Pulse" },
-      { time: "07:30", name: "Ride" },
+      { time: "07:30", name: "Perform" },
       { time: "17:30", name: "Forge" },
       { time: "19:00", name: "Pulse" },
     ],
@@ -23,18 +23,18 @@ const days = [
     day: "Wed",
     classes: [
       { time: "06:00", name: "Forge" },
-      { time: "12:15", name: "Flow" },
+      { time: "12:15", name: "Restore" },
       { time: "18:00", name: "Pulse" },
-      { time: "19:30", name: "Ride" },
+      { time: "19:30", name: "Perform" },
     ],
   },
   {
     day: "Thu",
     classes: [
-      { time: "06:00", name: "Ride" },
+      { time: "06:00", name: "Perform" },
       { time: "12:15", name: "Forge" },
       { time: "17:30", name: "Pulse" },
-      { time: "19:00", name: "Flow" },
+      { time: "19:00", name: "Restore" },
     ],
   },
   {
@@ -42,7 +42,7 @@ const days = [
     classes: [
       { time: "06:00", name: "Forge" },
       { time: "12:15", name: "Pulse" },
-      { time: "17:30", name: "Ride" },
+      { time: "17:30", name: "Perform" },
       { time: "19:00", name: "Forge" },
     ],
   },
@@ -51,15 +51,15 @@ const days = [
     classes: [
       { time: "08:00", name: "Pulse" },
       { time: "09:30", name: "Forge" },
-      { time: "11:00", name: "Ride" },
-      { time: "12:30", name: "Flow" },
+      { time: "11:00", name: "Perform" },
+      { time: "12:30", name: "Restore" },
     ],
   },
   {
     day: "Sun",
     classes: [
-      { time: "09:00", name: "Ride" },
-      { time: "10:30", name: "Flow" },
+      { time: "09:00", name: "Perform" },
+      { time: "10:30", name: "Restore" },
       { time: "12:00", name: "Forge" },
     ],
   },
@@ -121,8 +121,7 @@ export const Schedule = () => {
                       className={`font-display font-semibold uppercase tracking-wide text-lg mt-1 transition-colors duration-300 ${
                         c.name === "Forge"
                           ? "text-[#4C63F5]"
-                          : "text-[#121212] group-hover:text-[#F4F4F0]"
-                      }`}
+                          : "text-[#121212] group-hover:text-[#F4F4F0]"}`}
                     >
                       {c.name}
                     </p>
