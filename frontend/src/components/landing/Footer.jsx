@@ -1,0 +1,55 @@
+export const Footer = () => {
+  return (
+    <footer data-testid="site-footer" className="bg-[#121212] border-t border-[#F4F4F0]/10 px-6 md:px-12 pt-20 pb-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-20">
+        <div className="col-span-2">
+          <p className="font-display font-bold uppercase tracking-tight text-3xl text-[#F4F4F0]">
+            Synergy<span className="text-[#4C63F5]">.</span>
+          </p>
+          <p className="mt-4 max-w-xs text-sm text-[#F4F4F0]/50 leading-relaxed">
+            Group fitness for people who take training seriously. Three
+            locations. One standard.
+          </p>
+        </div>
+        <div>
+          <p className="font-mono-accent text-[11px] tracking-[0.25em] uppercase text-[#F4F4F0]/40 mb-5">Visit</p>
+          <ul className="space-y-3 text-sm text-[#F4F4F0]/70">
+            <li data-testid="footer-location-downtown">Downtown — 44 Mercer St</li>
+            <li data-testid="footer-location-riverside">Riverside — 9 Foundry Way</li>
+            <li data-testid="footer-location-north">North — 120 Atlas Ave</li>
+          </ul>
+        </div>
+        <div>
+          <p className="font-mono-accent text-[11px] tracking-[0.25em] uppercase text-[#F4F4F0]/40 mb-5">Connect</p>
+          <ul className="space-y-3 text-sm">
+            {["Instagram", "YouTube", "Spotify"].map((s) => (
+              <li key={s}>
+                <a
+                  data-testid={`footer-social-${s.toLowerCase()}`}
+                  href="#top"
+                  className="text-[#F4F4F0]/70 hover:text-[#4C63F5] transition-colors duration-300"
+                >
+                  {s}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <p
+        aria-hidden="true"
+        className="font-display font-bold uppercase text-outline text-[13vw] leading-none whitespace-nowrap overflow-hidden select-none text-center"
+      >
+        Synergy
+      </p>
+      <div className="mt-10 flex flex-col md:flex-row justify-between gap-3 border-t border-[#F4F4F0]/10 pt-6">
+        <p className="font-mono-accent text-[11px] tracking-[0.2em] uppercase text-[#F4F4F0]/40">
+          © 2026 Synergy Group Fitness
+        </p>
+        <p className="font-mono-accent text-[11px] tracking-[0.2em] uppercase text-[#F4F4F0]/40">
+          Stronger Together. Every Rep.
+        </p>
+      </div>
+    </footer>
+  );
+};
