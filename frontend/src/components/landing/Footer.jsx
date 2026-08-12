@@ -1,3 +1,5 @@
+import { AppBadges } from "@/components/landing/CTA";
+
 export const Footer = () => {
   return (
     <footer data-testid="site-footer" className="bg-[#121212] border-t border-[#F4F4F0]/10 px-6 md:px-12 pt-20 pb-10">
@@ -34,6 +36,10 @@ export const Footer = () => {
               </li>
             ))}
           </ul>
+          <p className="font-mono-accent text-[11px] tracking-[0.25em] uppercase text-[#F4F4F0]/40 mt-8 mb-4">
+            Get The App
+          </p>
+          <AppBadges dark />
         </div>
       </div>
       <p

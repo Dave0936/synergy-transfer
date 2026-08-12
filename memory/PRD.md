@@ -42,6 +42,9 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 6)
+- App download badges (AppBadges component in CTA.jsx): real App Store + Google Play links for the Synergy app, shown in the Join/CTA section (dark badges on blue) and in the footer "Get The App" block (light badges on charcoal)
+
 ## Implemented (2026-08-12, iteration 5)
 - Team section rebuilt as a horizontally scrollable snap-strip (all 5 real coaches) with prev/next arrow buttons, edge-disabled states, hidden scrollbar, per-card scroll reveal
 - Real team photos uploaded by user now used: Ross (ross.png), Amy (amy.png), Bev (bev.png), Jonny (jonny.png), Connor (conner.png) — hosted via customer-assets CDN URLs

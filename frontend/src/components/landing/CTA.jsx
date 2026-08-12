@@ -1,6 +1,56 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, Apple, Play } from "lucide-react";
+
+const APP_STORE_URL = "https://apps.apple.com/gb/app/synergy-group-fitness/id6736437314";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.goteamup.app.synergygroupfitness&hl=en_GB";
+
+export const AppBadges = ({ dark = false }) => (
+  <div className="flex flex-wrap gap-4">
+    <a
+      data-testid="app-store-link"
+      href={APP_STORE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group flex items-center gap-3 px-6 py-3.5 transition-colors duration-300 ${
+        dark
+          ? "bg-[#F4F4F0] text-[#121212] hover:bg-[#4C63F5] hover:text-[#F4F4F0]"
+          : "bg-[#121212] text-[#F4F4F0] hover:bg-[#F4F4F0] hover:text-[#121212]"
+      }`}
+    >
+      <Apple className="w-6 h-6" />
+      <span className="text-left leading-tight">
+        <span className="block font-mono-accent text-[9px] tracking-[0.2em] uppercase opacity-60">
+          Download on the
+        </span>
+        <span className="block font-display font-semibold uppercase tracking-wide text-base">
+          App Store
+        </span>
+      </span>
+    </a>
+    <a
+      data-testid="google-play-link"
+      href={PLAY_STORE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group flex items-center gap-3 px-6 py-3.5 transition-colors duration-300 ${
+        dark
+          ? "bg-[#F4F4F0] text-[#121212] hover:bg-[#4C63F5] hover:text-[#F4F4F0]"
+          : "bg-[#121212] text-[#F4F4F0] hover:bg-[#F4F4F0] hover:text-[#121212]"
+      }`}
+    >
+      <Play className="w-6 h-6" />
+      <span className="text-left leading-tight">
+        <span className="block font-mono-accent text-[9px] tracking-[0.2em] uppercase opacity-60">
+          Get it on
+        </span>
+        <span className="block font-display font-semibold uppercase tracking-wide text-base">
+          Google Play
+        </span>
+      </span>
+    </a>
+  </div>
+);
 
 export const CTA = () => {
   const [email, setEmail] = useState("");
@@ -77,6 +127,19 @@ export const CTA = () => {
               </button>
             </form>
           )}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-14"
+        >
+          <p className="font-mono-accent text-[11px] tracking-[0.25em] uppercase text-[#F4F4F0]/60 mb-4">
+            Or book on the Synergy app
+          </p>
+          <AppBadges />
         </motion.div>
       </div>
     </section>
