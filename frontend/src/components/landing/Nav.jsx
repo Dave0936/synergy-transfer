@@ -1,24 +1,30 @@
 import { useState, useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Programs", href: "#programs" },
-  { label: "Schedule", href: "#schedule" },
-  { label: "Coaches", href: "#coaches" },
-  { label: "Facilities", href: "#facilities" },
-  { label: "Membership", href: "#membership" },
+  { label: "Programs", to: "/programs" },
+  { label: "Schedule", to: "/schedule" },
+  { label: "Team", to: "/team" },
+  { label: "Membership", to: "/membership" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export const Nav = ({ ready = true }) => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -41,36 +47,40 @@ export const Nav = ({ ready = true }) => {
         }`}
       >
         <nav className="flex items-center justify-between px-6 md:px-12 py-5">
-          <a
+          <Link
             data-testid="nav-logo"
-            href="#top"
+            to="/"
             onClick={() => setOpen(false)}
             className="font-display font-bold uppercase tracking-tight text-xl md:text-2xl text-[#F4F4F0]"
           >
             Synergy<span className="text-[#4C63F5]">.</span>
-          </a>
+          </Link>
           <div className="hidden md:flex items-center gap-10">
             {links.map((l) => (
-              <a
+              <NavLink
                 key={l.label}
                 data-testid={`nav-link-${l.label.toLowerCase()}`}
-                href={l.href}
-                className="font-mono-accent text-xs tracking-[0.2em] uppercase text-[#F4F4F0]/70 hover:text-[#4C63F5] transition-colors duration-300"
+                to={l.to}
+                className={({ isActive }) =>
+                  `font-mono-accent text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${
+                    isActive ? "text-[#4C63F5]" : "text-[#F4F4F0]/70 hover:text-[#4C63F5]"
+                  }`
+                }
               >
                 {l.label}
-              </a>
+              </NavLink>
             ))}
           </div>
           <div className="flex items-center gap-3">
-            <a
+            <Link
               data-testid="nav-join-button"
-              href="#join"
+              to="/membership"
               onClick={() => setOpen(false)}
               className="group hidden sm:flex items-center gap-2 bg-[#4C63F5] hover:bg-[#3b4ce0] text-[#F4F4F0] font-display uppercase tracking-wide text-sm px-6 py-3 transition-colors duration-300"
             >
               Join Now
               <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+            </Link>
             <button
               data-testid="mobile-menu-button"
               onClick={() => setOpen(!open)}
@@ -96,35 +106,41 @@ export const Nav = ({ ready = true }) => {
             <nav className="flex flex-col gap-2">
               {links.map((l, i) => (
                 <div key={l.label} className="overflow-hidden">
-                  <motion.a
-                    data-testid={`mobile-nav-link-${l.label.toLowerCase()}`}
-                    href={l.href}
-                    onClick={() => setOpen(false)}
+                  <motion.div
                     initial={{ y: "110%" }}
                     animate={{ y: "0%" }}
                     transition={{ duration: 0.6, delay: 0.1 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-baseline gap-4 font-display font-bold uppercase tracking-tight text-5xl text-[#F4F4F0] py-2"
                   >
-                    <span className="font-mono-accent text-xs text-[#4C63F5]">
-                      /{String(i + 1).padStart(2, "0")}
-                    </span>
-                    {l.label}
-                  </motion.a>
+                    <NavLink
+                      data-testid={`mobile-nav-link-${l.label.toLowerCase()}`}
+                      to={l.to}
+                      onClick={() => setOpen(false)}
+                      className="flex items-baseline gap-4 font-display font-bold uppercase tracking-tight text-5xl text-[#F4F4F0] py-2"
+                    >
+                      <span className="font-mono-accent text-xs text-[#4C63F5]">
+                        /{String(i + 1).padStart(2, "0")}
+                      </span>
+                      {l.label}
+                    </NavLink>
+                  </motion.div>
                 </div>
               ))}
             </nav>
-            <motion.a
-              data-testid="mobile-join-button"
-              href="#join"
-              onClick={() => setOpen(false)}
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="mt-12 flex items-center justify-center gap-2 bg-[#4C63F5] text-[#F4F4F0] font-display uppercase tracking-wide text-lg px-8 py-5"
             >
-              Join Now
-              <ArrowUpRight className="w-5 h-5" />
-            </motion.a>
+              <Link
+                data-testid="mobile-join-button"
+                to="/membership"
+                onClick={() => setOpen(false)}
+                className="mt-12 flex items-center justify-center gap-2 bg-[#4C63F5] text-[#F4F4F0] font-display uppercase tracking-wide text-lg px-8 py-5"
+              >
+                Join Now
+                <ArrowUpRight className="w-5 h-5" />
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

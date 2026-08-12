@@ -42,6 +42,19 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 7 — FULL SITE)
+- Multi-page site with react-router: Home, Programs (/programs), Schedule (/schedule), Team (/team), Membership (/membership), Contact (/contact), FAQ (/faq), Privacy (/privacy) — shared Nav (router-aware with active states), Footer (Explore links + privacy/FAQ), Cursor, grain, Lenis with scroll-to-top on route change
+- PageHeader component: masked line reveal on every page
+- Programs page: full program breakdowns (modal) + "Beyond The Timetable" services grid (PT, Teens & Kids, Private groups, SG3 nutrition)
+- Schedule page: timetable + app booking explainer with store badges
+- Team page: coaches strip + "By Your Side. Every Session." ethos block
+- Membership page: pricing (indicative note) + "Synergy Promises" bone strip (no joining fee / no 12-month contracts / PAYG welcome — from real FAQ)
+- Contact page: working form → POST /api/leads (source=contact), Leith studio card with Google Maps link, second studio card (address shared at booking), app badges
+- FAQ page: 12 real FAQs from synergygroupfitness.co.uk as a custom accordion
+- Privacy page: 6-section plain-English policy
+- Backend: Lead model + POST /api/leads (MongoDB), GET /api/leads protected by x-admin-key header; Resend email integration coded (team notification + user confirmation HTML emails, asyncio.to_thread non-blocking) — ACTIVATES once RESEND_API_KEY is added to backend/.env (PENDING from user); without it, emails are skipped and logged
+- CTA trial form now posts to /api/leads (source=free_trial) with loading + error states
+
 ## Implemented (2026-08-12, iteration 6)
 - App download badges (AppBadges component in CTA.jsx): real App Store + Google Play links for the Synergy app, shown in the Join/CTA section (dark badges on blue) and in the footer "Get The App" block (light badges on charcoal)
 

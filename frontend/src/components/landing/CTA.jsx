@@ -55,10 +55,26 @@ export const AppBadges = ({ dark = false }) => (
 export const CTA = () => {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
+  const [error, setError] = useState("");
+  const [sending, setSending] = useState(false);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    if (email.trim()) setDone(true);
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/leads`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "free_trial" }),
+      });
+      if (!res.ok) throw new Error();
+      setDone(true);
+    } catch {
+      setError("Something went wrong — try again or book via the app.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -120,12 +136,18 @@ export const CTA = () => {
               <button
                 data-testid="join-submit-button"
                 type="submit"
-                className="group flex items-center justify-center gap-2 bg-[#F4F4F0] text-[#121212] hover:bg-[#121212] hover:text-[#F4F4F0] font-display uppercase tracking-wide text-base px-10 py-5 transition-colors duration-300"
+                disabled={sending}
+                className="group flex items-center justify-center gap-2 bg-[#F4F4F0] text-[#121212] hover:bg-[#121212] hover:text-[#F4F4F0] disabled:opacity-50 font-display uppercase tracking-wide text-base px-10 py-5 transition-colors duration-300"
               >
-                Claim Week
+                {sending ? "Claiming..." : "Claim Week"}
                 <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </button>
             </form>
+          )}
+          {error && (
+            <p data-testid="join-error-message" className="mt-4 font-mono-accent text-xs tracking-[0.15em] uppercase text-[#121212]">
+              {error}
+            </p>
           )}
         </motion.div>
 

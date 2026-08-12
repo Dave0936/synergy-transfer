@@ -6,8 +6,19 @@ export const ProgramModal = ({ program, onClose }) => {
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [onClose]);
+    if (program) {
+      window.__lenis?.stop();
+      document.body.style.overflow = "hidden";
+    } else {
+      window.__lenis?.start();
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      window.__lenis?.start();
+      document.body.style.overflow = "";
+    };
+  }, [onClose, program]);
 
   return (
     <AnimatePresence>

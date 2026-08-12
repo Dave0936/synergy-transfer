@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { AppBadges } from "@/components/landing/CTA";
 
 export const Footer = () => {
   return (
     <footer data-testid="site-footer" className="bg-[#121212] border-t border-[#F4F4F0]/10 px-6 md:px-12 pt-20 pb-10">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-20">
-        <div className="col-span-2">
+      <div className="grid grid-cols-2 md:grid-cols-12 gap-10 mb-20">
+        <div className="col-span-2 md:col-span-4">
           <p className="font-display font-bold uppercase tracking-tight text-3xl text-[#F4F4F0]">
             Synergy<span className="text-[#4C63F5]">.</span>
           </p>
@@ -19,6 +20,29 @@ export const Footer = () => {
             <li data-testid="footer-location-downtown">35 West Bowling Green Street</li>
             <li data-testid="footer-location-riverside">Leith, Edinburgh</li>
             <li data-testid="footer-location-north">EH6 5NX</li>
+          </ul>
+        </div>
+        <div>
+          <p className="font-mono-accent text-[11px] tracking-[0.25em] uppercase text-[#F4F4F0]/40 mb-5">Explore</p>
+          <ul className="space-y-3 text-sm">
+            {[
+              { label: "Programs", to: "/programs" },
+              { label: "Schedule", to: "/schedule" },
+              { label: "Team", to: "/team" },
+              { label: "Membership", to: "/membership" },
+              { label: "FAQ", to: "/faq" },
+              { label: "Contact", to: "/contact" },
+            ].map((l) => (
+              <li key={l.label}>
+                <Link
+                  data-testid={`footer-link-${l.label.toLowerCase()}`}
+                  to={l.to}
+                  className="text-[#F4F4F0]/70 hover:text-[#4C63F5] transition-colors duration-300"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
@@ -52,6 +76,14 @@ export const Footer = () => {
         <p className="font-mono-accent text-[11px] tracking-[0.2em] uppercase text-[#F4F4F0]/40">
           © 2026 Synergy Group Fitness
         </p>
+        <div className="flex gap-6">
+          <Link data-testid="footer-link-privacy" to="/privacy" className="font-mono-accent text-[11px] tracking-[0.2em] uppercase text-[#F4F4F0]/40 hover:text-[#4C63F5] transition-colors duration-300">
+            Privacy
+          </Link>
+          <Link data-testid="footer-link-faq-bottom" to="/faq" className="font-mono-accent text-[11px] tracking-[0.2em] uppercase text-[#F4F4F0]/40 hover:text-[#4C63F5] transition-colors duration-300">
+            FAQ
+          </Link>
+        </div>
         <p className="font-mono-accent text-[11px] tracking-[0.2em] uppercase text-[#F4F4F0]/40">
           #morethanjustagym
         </p>
