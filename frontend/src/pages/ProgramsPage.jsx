@@ -39,11 +39,11 @@ export default function ProgramsPage() {
       />
       <Programs onSelect={setSelectedProgram} />
 
-      <section data-testid="services-section" className="px-6 md:px-12 pb-32 md:pb-40">
+      <section data-testid="services-section" className="px-6 md:px-12 py-24 md:py-32 bg-[#EDE8DF]">
         <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-[#4C63F5] mb-12">
           Beyond The Timetable
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-[#F4F4F0]/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-[#121212]/15">
           {services.map((s, i) => (
             <motion.div
               key={s.name}
@@ -52,18 +52,18 @@ export default function ProgramsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.7, delay: (i % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="group border-b border-r border-[#F4F4F0]/10 p-8 md:p-12 hover:bg-[#1A1A1A] transition-colors duration-500"
+              className="group border-b border-r border-[#121212]/15 p-8 md:p-12 hover:bg-[#121212] transition-colors duration-500"
             >
-              <h3 className="font-display font-semibold uppercase tracking-tight text-2xl md:text-3xl text-[#F4F4F0] group-hover:text-[#4C63F5] transition-colors duration-500">
+              <h3 className="font-display font-semibold uppercase tracking-tight text-2xl md:text-3xl text-[#121212] group-hover:text-[#4C63F5] transition-colors duration-500">
                 {s.name}
               </h3>
-              <p className="mt-4 text-sm md:text-base text-[#F4F4F0]/60 leading-relaxed max-w-md">
+              <p className="mt-4 text-sm md:text-base text-[#121212]/60 group-hover:text-[#F4F4F0]/65 leading-relaxed max-w-md transition-colors duration-500">
                 {s.desc}
               </p>
               <Link
                 data-testid={`service-enquire-${i}`}
                 to={s.to || "/contact"}
-                className="mt-6 inline-flex items-center gap-2 font-mono-accent text-xs tracking-[0.2em] uppercase text-[#F4F4F0]/50 hover:text-[#4C63F5] transition-colors duration-300"
+                className="mt-6 inline-flex items-center gap-2 font-mono-accent text-xs tracking-[0.2em] uppercase text-[#121212]/50 group-hover:text-[#F4F4F0]/60 hover:!text-[#4C63F5] transition-colors duration-300"
               >
                 {s.to ? "Explore" : "Enquire"} <ArrowUpRight className="w-4 h-4" />
               </Link>

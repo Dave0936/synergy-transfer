@@ -45,8 +45,8 @@ export default function NewsPage() {
         </Link>
       </section>
 
-      <section data-testid="news-grid" className="px-6 md:px-12 pb-32 md:pb-40">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#F4F4F0]/10">
+      <section data-testid="news-grid" className="px-6 md:px-12 py-24 md:py-32 bg-[#EDE8DF]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[#121212]/15">
           {rest.map((post, i) => (
             <motion.div
               key={post.slug}
@@ -54,27 +54,27 @@ export default function NewsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.7, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="border-b border-r border-[#F4F4F0]/10"
+              className="border-b border-r border-[#121212]/15"
             >
               <Link
                 to={`/news/${post.slug}`}
                 data-testid={`news-card-${post.slug}`}
                 data-cursor="view"
-                className="group block p-8 hover:bg-[#1A1A1A] transition-colors duration-500 h-full"
+                className="group block p-8 hover:bg-[#121212] transition-colors duration-500 h-full"
               >
                 <div className="flex items-baseline justify-between mb-6">
                   <span className="font-mono-accent text-[10px] tracking-[0.25em] uppercase text-[#4C63F5]">
                     {post.category}
                   </span>
-                  <span className="font-mono-accent text-[10px] text-[#F4F4F0]/40">
+                  <span className="font-mono-accent text-[10px] text-[#121212]/40 group-hover:text-[#F4F4F0]/40 transition-colors duration-500">
                     /{String(i + 2).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="font-display font-semibold uppercase tracking-tight text-2xl text-[#F4F4F0] group-hover:text-[#4C63F5] transition-colors duration-500 leading-tight">
+                <h3 className="font-display font-semibold uppercase tracking-tight text-2xl text-[#121212] group-hover:text-[#F4F4F0] transition-colors duration-500 leading-tight">
                   {post.title}
                 </h3>
-                <p className="mt-4 text-sm text-[#F4F4F0]/60 leading-relaxed">{post.excerpt}</p>
-                <span className="mt-6 inline-flex items-center gap-2 font-mono-accent text-xs tracking-[0.2em] uppercase text-[#F4F4F0]/40 group-hover:text-[#4C63F5] transition-colors duration-300">
+                <p className="mt-4 text-sm text-[#121212]/60 group-hover:text-[#F4F4F0]/65 transition-colors duration-500 leading-relaxed">{post.excerpt}</p>
+                <span className="mt-6 inline-flex items-center gap-2 font-mono-accent text-xs tracking-[0.2em] uppercase text-[#121212]/40 group-hover:text-[#4C63F5] transition-colors duration-300">
                   Read <ArrowUpRight className="w-4 h-4" />
                 </span>
               </Link>

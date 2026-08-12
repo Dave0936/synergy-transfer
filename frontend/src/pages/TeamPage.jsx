@@ -69,7 +69,7 @@ const CoachProfile = ({ coach, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10%" }}
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      className="grid grid-cols-12 gap-6 items-start border-t border-[#F4F4F0]/10 py-14"
+      className="grid grid-cols-12 gap-6 items-start border-t border-[#121212]/15 py-14"
     >
       <div className={`col-span-10 col-start-2 md:col-span-3 ${flip ? "md:col-start-9 md:order-2" : "md:col-start-1"}`}>
         <div className="group relative overflow-hidden aspect-[3/4]">
@@ -86,20 +86,20 @@ const CoachProfile = ({ coach, index }) => {
         <span aria-hidden="true" className="font-mono-accent text-xs text-[#4C63F5]">
           /{String(index + 1).padStart(2, "0")}
         </span>
-        <h3 className="mt-3 font-display font-bold uppercase tracking-tight text-3xl md:text-5xl text-[#F4F4F0]">
+        <h3 className="mt-3 font-display font-bold uppercase tracking-tight text-3xl md:text-5xl text-[#121212]">
           {coach.name}
         </h3>
-        <p className="mt-2 font-mono-accent text-xs tracking-[0.2em] uppercase text-[#F4F4F0]/50">
+        <p className="mt-2 font-mono-accent text-xs tracking-[0.2em] uppercase text-[#121212]/50">
           {coach.role}
         </p>
-        <p className="mt-6 text-base md:text-lg leading-relaxed text-[#F4F4F0]/70 max-w-lg">
+        <p className="mt-6 text-base md:text-lg leading-relaxed text-[#121212]/65 max-w-lg">
           {coach.speciality}
         </p>
         <button
           data-testid={`coach-facts-toggle-${coach.name.split(" ")[0].toLowerCase()}`}
           onClick={() => setOpen(!open)}
           aria-expanded={open}
-          className="mt-8 flex items-center gap-3 font-mono-accent text-xs tracking-[0.25em] uppercase text-[#F4F4F0]/60 hover:text-[#4C63F5] transition-colors duration-300"
+          className="mt-8 flex items-center gap-3 font-mono-accent text-xs tracking-[0.25em] uppercase text-[#121212]/60 hover:text-[#4C63F5] transition-colors duration-300"
         >
           <Plus className={`w-4 h-4 transition-transform duration-500 ${open ? "rotate-45 text-[#4C63F5]" : ""}`} />
           {open ? "Hide The Fun Stuff" : "Off The Record"}
@@ -109,8 +109,8 @@ const CoachProfile = ({ coach, index }) => {
             <div className="pt-6 space-y-4">
               {coach.facts.map((f, i) => (
                 <div key={i} data-testid={`coach-fact-${index}-${i}`} className="border-l-2 border-[#4C63F5] pl-5">
-                  <p className="font-mono-accent text-[11px] tracking-[0.15em] uppercase text-[#F4F4F0]/40">{f.q}</p>
-                  <p className="mt-1 font-display font-medium uppercase tracking-wide text-lg text-[#F4F4F0]">{f.a}</p>
+                  <p className="font-mono-accent text-[11px] tracking-[0.15em] uppercase text-[#121212]/45">{f.q}</p>
+                  <p className="mt-1 font-display font-medium uppercase tracking-wide text-lg text-[#121212]">{f.a}</p>
                 </div>
               ))}
             </div>
@@ -129,11 +129,11 @@ export default function TeamPage() {
         title={"A Family Team.\nAn Award-Winning One."}
         sub="2x UK Personal Trainer of the Year. 4x UK Functional Gym of the Year. But what members talk about most is how this team makes them feel — welcome, coached, and capable of more."
       />
-      <section data-testid="team-profiles" className="px-6 md:px-12 pt-8 md:pt-12 pb-24 md:pb-32">
+      <section data-testid="team-profiles" className="px-6 md:px-12 pt-24 md:pt-32 pb-24 md:pb-32 bg-[#EDE8DF]">
         <p className="font-mono-accent text-xs tracking-[0.3em] uppercase text-[#4C63F5] mb-4">
           Meet Them Properly
         </p>
-        <h2 className="font-display font-bold uppercase tracking-tight text-4xl md:text-6xl text-[#F4F4F0] max-w-3xl mb-10">
+        <h2 className="font-display font-bold uppercase tracking-tight text-4xl md:text-6xl text-[#121212] max-w-3xl mb-10">
           The People Behind The Whistle
         </h2>
         <div>

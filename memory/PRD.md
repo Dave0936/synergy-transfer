@@ -42,6 +42,9 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-12, iteration 15)
+- Bone (#EDE8DF) contrast sections beyond the homepage, per user request: Team page profiles ("The People Behind The Whistle"), Programs page services grid ("Beyond The Timetable"), News page story grid — all with inverted charcoal text, dark hairline borders, and hover states that flip cards to charcoal with bone text
+
 ## Implemented (2026-08-12, iteration 14)
 - News section: /news "The Synergy Journal" — featured story card + 5 story grid, all populated with REAL content from synergygroupfitness.co.uk (awards page, community page, member stories, events calendar)
 - Post-style detail pages at /news/:slug: category+date kicker, masked headline reveal, full-bleed 21/9 image with blue treatment, excerpt standfirst, body paragraphs, pull quote, back link, CTA. Full bodies for "4x UK Functional Gym Of The Year" and "Motivation Gets You Started. Community Keeps You Going."; member/event stories (Lis Taylor, Run Club, SG3 Nutrition, Drag Queen Bingo) also clickable
