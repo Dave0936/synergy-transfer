@@ -1,15 +1,17 @@
-from fastapi import FastAPI, APIRouter, Header, HTTPException
+from fastapi import FastAPI, APIRouter, Header, HTTPException, Request, Response
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import asyncio
 import logging
+import bcrypt
+import jwt
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List, Optional
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -143,6 +145,178 @@ async def get_leads(x_admin_key: Optional[str] = Header(None)):
         if isinstance(lead['created_at'], str):
             lead['created_at'] = datetime.fromisoformat(lead['created_at'])
     return leads
+
+
+# ---------------- Auth ----------------
+
+JWT_ALGORITHM = "HS256"
+
+
+def hash_password(password: str) -> str:
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+
+def verify_password(plain: str, hashed: str) -> bool:
+    return bcrypt.checkpw(plain.encode("utf-8"), hashed.encode("utf-8"))
+
+
+def create_access_token(user_id: str, email: str) -> str:
+    payload = {"sub": user_id, "email": email, "exp": datetime.now(timezone.utc) + timedelta(minutes=15), "type": "access"}
+    return jwt.encode(payload, os.environ["JWT_SECRET"], algorithm=JWT_ALGORITHM)
+
+
+def create_refresh_token(user_id: str) -> str:
+    payload = {"sub": user_id, "exp": datetime.now(timezone.utc) + timedelta(days=7), "type": "refresh"}
+    return jwt.encode(payload, os.environ["JWT_SECRET"], algorithm=JWT_ALGORITHM)
+
+
+def set_auth_cookies(response: Response, user_id: str, email: str):
+    response.set_cookie("access_token", create_access_token(user_id, email), httponly=True, secure=True, samesite="none", max_age=900, path="/")
+    response.set_cookie("refresh_token", create_refresh_token(user_id), httponly=True, secure=True, samesite="none", max_age=604800, path="/")
+
+
+class RegisterInput(BaseModel):
+    name: str
+    email: EmailStr
+    password: str
+
+
+class LoginInput(BaseModel):
+    email: EmailStr
+    password: str
+
+
+def public_user(doc: dict) -> dict:
+    return {"id": doc["id"], "name": doc["name"], "email": doc["email"], "role": doc.get("role", "member"), "created_at": doc["created_at"]}
+
+
+async def get_current_user(request: Request) -> dict:
+    token = request.cookies.get("access_token")
+    if not token:
+        auth_header = request.headers.get("Authorization", "")
+        if auth_header.startswith("Bearer "):
+            token = auth_header[7:]
+    if not token:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    try:
+        payload = jwt.decode(token, os.environ["JWT_SECRET"], algorithms=[JWT_ALGORITHM])
+        if payload.get("type") != "access":
+            raise HTTPException(status_code=401, detail="Invalid token type")
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token expired")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    user = await db.users.find_one({"id": payload["sub"]}, {"_id": 0})
+    if not user:
+        raise HTTPException(status_code=401, detail="User not found")
+    return user
+
+
+async def check_lockout(identifier: str):
+    record = await db.login_attempts.find_one({"identifier": identifier})
+    if record and record.get("attempts", 0) >= 5:
+        locked_until = record.get("locked_until")
+        if locked_until and datetime.fromisoformat(locked_until) > datetime.now(timezone.utc):
+            raise HTTPException(status_code=429, detail="Too many failed attempts. Try again in 15 minutes.")
+
+
+async def record_failed_login(identifier: str):
+    await db.login_attempts.update_one(
+        {"identifier": identifier},
+        {"$inc": {"attempts": 1}, "$set": {"locked_until": (datetime.now(timezone.utc) + timedelta(minutes=15)).isoformat()}},
+        upsert=True,
+    )
+
+
+@api_router.post("/auth/register")
+async def register(input: RegisterInput, response: Response):
+    email = input.email.lower()
+    if len(input.password) < 8:
+        raise HTTPException(status_code=422, detail="Password must be at least 8 characters")
+    if await db.users.find_one({"email": email}):
+        raise HTTPException(status_code=409, detail="An account with this email already exists")
+    user = {
+        "id": str(uuid.uuid4()),
+        "name": input.name.strip(),
+        "email": email,
+        "password_hash": hash_password(input.password),
+        "role": "member",
+        "created_at": datetime.now(timezone.utc).isoformat(),
+    }
+    await db.users.insert_one(user)
+    set_auth_cookies(response, user["id"], email)
+    return public_user(user)
+
+
+@api_router.post("/auth/login")
+async def login(input: LoginInput, request: Request, response: Response):
+    email = input.email.lower()
+    identifier = f"{request.client.host}:{email}"
+    await check_lockout(identifier)
+    user = await db.users.find_one({"email": email}, {"_id": 0})
+    if not user or not verify_password(input.password, user["password_hash"]):
+        await record_failed_login(identifier)
+        raise HTTPException(status_code=401, detail="Incorrect email or password")
+    await db.login_attempts.delete_one({"identifier": identifier})
+    set_auth_cookies(response, user["id"], email)
+    return public_user(user)
+
+
+@api_router.post("/auth/logout")
+async def logout(response: Response):
+    response.delete_cookie("access_token", path="/")
+    response.delete_cookie("refresh_token", path="/")
+    return {"status": "logged_out"}
+
+
+@api_router.get("/auth/me")
+async def auth_me(request: Request):
+    user = await get_current_user(request)
+    return public_user(user)
+
+
+@api_router.post("/auth/refresh")
+async def refresh(request: Request, response: Response):
+    token = request.cookies.get("refresh_token")
+    if not token:
+        raise HTTPException(status_code=401, detail="No refresh token")
+    try:
+        payload = jwt.decode(token, os.environ["JWT_SECRET"], algorithms=[JWT_ALGORITHM])
+        if payload.get("type") != "refresh":
+            raise HTTPException(status_code=401, detail="Invalid token type")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid refresh token")
+    user = await db.users.find_one({"id": payload["sub"]}, {"_id": 0})
+    if not user:
+        raise HTTPException(status_code=401, detail="User not found")
+    response.set_cookie("access_token", create_access_token(user["id"], user["email"]), httponly=True, secure=True, samesite="none", max_age=900, path="/")
+    return public_user(user)
+
+
+async def seed_admin():
+    admin_email = os.environ.get("ADMIN_EMAIL", "").lower()
+    admin_password = os.environ.get("ADMIN_PASSWORD", "")
+    if not admin_email or not admin_password:
+        return
+    existing = await db.users.find_one({"email": admin_email})
+    if existing is None:
+        await db.users.insert_one({
+            "id": str(uuid.uuid4()),
+            "name": "Synergy Admin",
+            "email": admin_email,
+            "password_hash": hash_password(admin_password),
+            "role": "admin",
+            "created_at": datetime.now(timezone.utc).isoformat(),
+        })
+    elif not verify_password(admin_password, existing["password_hash"]):
+        await db.users.update_one({"email": admin_email}, {"$set": {"password_hash": hash_password(admin_password)}})
+
+
+@app.on_event("startup")
+async def startup():
+    await db.users.create_index("email", unique=True)
+    await db.login_attempts.create_index("identifier")
+    await seed_admin()
 
 
 app.include_router(api_router)

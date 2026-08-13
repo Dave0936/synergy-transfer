@@ -42,6 +42,13 @@ Create a high-end, award-worthy (Awwwards SOTD level) landing page for a premium
 - Bone (#EDE8DF) contrast sections: Manifesto, Schedule, and Membership Pricing now on bone with inverted palette (charcoal text, #121212/15 borders, .text-outline-dark numerals, blue retained as accent)
 - Nav gained a "Schedule" link
 
+## Implemented (2026-08-13, iteration 17 — APP PHASE 1)
+- Member authentication (JWT playbook): register/login/logout/me/refresh endpoints, bcrypt hashing, 15-min access + 7-day refresh httpOnly cookies, 5-attempt brute-force lockout, admin seeded on startup, unique email index. CORS locked to the frontend origin for cookie auth
+- Member app shell at /app/*: bottom tab bar (Home / Book / Progress / News / Profile) in brand style, slim members header, safe-area padding; marketing Nav/Footer/Cursor hidden on app routes
+- Member screens: Login (sign in / create account toggle, error mapping), MemberHome (time-of-day greeting + quick links), Book (real weekly timetable linking out to the GoTeamUp portal, today highlighted), Progress (stat grid placeholders + Apple Health explainer for Phase 3), News (Journal feed), Profile (account details + sign out)
+- AuthContext with credentials-include session check; ProtectedRoute with loading/redirect states
+- Verified: register → me round-trip, admin login, wrong-password rejection, /app redirect → login → member home, tab navigation (mobile 390px)
+
 ## Implemented (2026-08-12, iteration 16)
 - Reworked the real Synergy logo for the site identity: extracted the S-blades icon from their original logo, recolored to electric blue tones (#3B4CE0 → #6E82FA luminance map), rebuilt the wordmark as a double stack — "SYNERGY." in Oswald Bold (bone) with blue full stop + "GROUP FITNESS" in letterspaced JetBrains Mono (blue); icon height matched to the type stack
 - Outputs: /public/synergy-logo.png (full lockup, transparent) + /public/synergy-mark.png (icon only, used as favicon/apple-touch-icon)
